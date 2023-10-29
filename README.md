@@ -34,3 +34,103 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+/////////////////////////////////////////////////////////
+
+ if you write a name of a folder with circular brackets, it becomes a folder for organization and does not affect the URL, so:
+
+if foldering-wise my page is in localhost:3000/(auth)/login, in reality, i need to write: localhost:3000/login
+
+also, any layout inside an organization folder, will affect all pages that are inside of it too
+
+
+rm -rf .next // we run this in the terminal if we messed something up
+npm run dev // to run the app again if we close
+
+
+{
+    If you are having an issue with disappearing navbar & sidebar upon leaving the server, deleting the server etc.
+
+You can fix this by moving UploadThing's styles into global.css at the end of the file instead of in the react component.
+
+Step 1:
+- Remove the import for upload-thing styles inside file-upload.tsx component
+- DELETE => import "@uploadthing/react/styles.css";
+
+Step 2:
+- Add the import at the bottom of the globals.css file instead
+
+// globals.css
+...
+@import "~@uploadthing/react/styles.css";
+
+
+Step 3 (optional):
+- Wrap the tailwind config with "withUt":
+
+// tailwind.config.js
+
+const { withUt } = require("uploadthing/tw");
+module.exports = withUt({
+   ...leave everything the same
+});
+}
+
+ # I can rename the sign-in or sign-up in .env, but then i will need to change the name of the folders in routes to new-name\[[...new-name]]
+
+# to implement: gltf-binary-model-viewer uploading in chat, live2d in chat, AI bots, custom themes, fix it so when we upload an image, we upload a smaller version
+# in the future i need to find out how to add my own theme
+# [fixed] fix the fact that once we click on the server settings and then exit that screen without saving, the next time we enter, the screen data is empty
+# make it so when managing members and when doing other things, we can only see the email of a member, if he enabled that setting
+# make it so we delete the images in our database of a server when we delete the server ( both for the server image and also uploaded data)
+# [nice] implement a server banner on the left side
+# [important] make sure the back end checks if the name of the channel already exists or not for the same type of channel, if it does, dont add it and send a response to the user (this can be done in the app/api/channels/route and .../servers/route or in the [channelId]/route)
+# [important] make sure that we can only upload a name of server and channel to the back end, if it is smaller than a certain size (this can be done in the app/api/channels/route and .../servers/route or in the [serverId] route)
+# instead of being redirected to the general every time you select the server, make it so you get redirected to the last channel you were rendering
+# [important] for mobile and original, make it so right side of the screen has the friends private messages, do not forget to add friends to prisma to begin with, with [yourId]/[friendId]
+# [idea] make a personal board screen for when you chat with yourself, so that you can store data for later
+
+
+
+
+# I need to be able to block or ban people from certain servers/channels or the application altogether
+
+
+# pay attention to the pictures for reference
+# npm i @prisma/client
+# npx prisma studio // is good for seeing the server and profiles
+# we are using clerk for authentication
+# we are also installing components from ui.shadcn.com
+# we are using planetscale for the database
+# we are using uploadthing for the images upload
+# we are using shadcn/ui for most of the assets
+
+# we used "npm install uploadthing @uploadthing/react react-dropzone" to install uploadthing
+
+# FileUpload: endpoint="serverImage" depending what we want to upload, look at uploadthing/core to see the possible ones to choose from
+
+# we also "npm i uuid" and we also installed the dependencies with "npm i -D @types/uuid"
+# we also installed zustand with npm i zustand
+
+# modals are like the windows of the pop up windows, as in, a secondary mini screen menu that can be used for things like log in, create server and such
+
+# when we use "use client" it doesn't mean that something is not rendered in the server, it still is, all it means is, that it isnt a react server component
+# the only thing is that "use client" means that it is also rendered on the client, that's where it can cause hydration errors
+# which happens when it is rendered in one state in the server, and in another state in the client (like a desync)
+# modals are a bit problematic with that since they can be opened by useEffects and onClicks
+# and since they may cause these problems, we make them not render in the server, since there it is no need for it to render in the server anyways
+
+
+# The modals are like the pop ups, such as, invite friends, create new server, etc
+
+# command "npx prisma migrate reset" resets our database
+# every time we edit prisma, we need to type "npx prisma generate" and then "npx prisma db push"
+# we also did npm i query-string
+
+# if ever it is necessary in the future, we can have multiple databases where we store our data in the cloud, as in:
+# multiple website or services that we need the data from all of them ,in order to validate the validity of our output or input
+# the naive approach is to store the same object in multiple, but then the space taken would be too big, so what we do is to
+# store some sort of compressed version that is based on the original, so that it takes less values and it can still validate
+# it may not be had had erchi, but it is good enough
+# we did npm i socket.io // we need one for the front end and one for the server aka back end which is below
+# we did npm i socket.io-client
+# at some point in the future, the pages folder might need to be made inside the app folder or something, we will need to stay up to date

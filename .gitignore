@@ -19,6 +19,10 @@
 .DS_Store
 *.pem
 
+# local env files (which we should never commit! it contains keys and so on)
+.env*.local
+.env
+
 # debug
 npm-debug.log*
 yarn-debug.log*
