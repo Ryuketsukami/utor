@@ -88,8 +88,18 @@ module.exports = withUt({
 # instead of being redirected to the general every time you select the server, make it so you get redirected to the last channel you were rendering
 # [important] for mobile and original, make it so right side of the screen has the friends private messages, do not forget to add friends to prisma to begin with, with [yourId]/[friendId]
 # [idea] make a personal board screen for when you chat with yourself, so that you can store data for later
-
-
+# [important] make it so when I press x in the uploadthing, be it in the red x or in the modal, whatever picture was uploaded, will be deleted
+# [from-above] most likely will need to do an onclick to delete based ont he "endpoint" or src or smthin // check https://docs.uploadthing.com/api-reference/react
+# [important] modal, when we click on an image we open a modal with the image a bit bigger, if we click the button below we open the link of the img
+# [very-important] make it so the message wraps around when too long, and that the delete and edit stays in frame
+# [important] make it so when you delete a message with an image, the images also get deleted from the database
+# [important] make sure you delete all the messages from the database when you delete a server
+# [importamt] we should save in our database the original image and a smaller version, so we can render the smaller version in chat
+# [important] make it so when someone sends a message, we hear the notification sound, also
+# [important] make it so when someone send a message in a channel and we havent seen the message, for it to be marked
+# [important] make it so when we scale down the video/audio conference the buttons scales as well
+# [important] make it so we can have a @user call message system kind of thing
+# [important] make it so when you call a person, he may hear your call
 
 
 # I need to be able to block or ban people from certain servers/channels or the application altogether
@@ -103,6 +113,7 @@ module.exports = withUt({
 # we are using planetscale for the database
 # we are using uploadthing for the images upload
 # we are using shadcn/ui for most of the assets
+# we are using livekit.io for video and audio
 
 # we used "npm install uploadthing @uploadthing/react react-dropzone" to install uploadthing
 
@@ -134,3 +145,11 @@ module.exports = withUt({
 # we did npm i socket.io // we need one for the front end and one for the server aka back end which is below
 # we did npm i socket.io-client
 # at some point in the future, the pages folder might need to be made inside the app folder or something, we will need to stay up to date
+
+# [important] 
+# https://github.com/vercel/next.js/issues/55802 we changed next js source code, check link
+
+# we used npm i emoji-mart @emoji-mart/data @emoji-mart/react
+# we are installing npm i @tanstack/react-query
+# we did npm i date-fns
+# check lifekit documentation to see how we installed it

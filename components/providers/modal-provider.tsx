@@ -11,6 +11,8 @@ import { CreateChannelModal } from "@/components/modals/create-channel-modal";
 import { DeleteServerModal } from "@/components/modals/delete-server-modal";
 import { DeleteChannelModal } from "@/components/modals/delete-channel-modal";
 import { EditChannelModal } from "@/components/modals/edit-channel-modal";
+import { MessageFileModal } from "@/components/modals/message-file-modal";
+import { DeleteMessageModal } from "@/components/modals/delete-message-modal";
 
 // initial-modal is handled directly and can work independently, all other modals should be here below, they will be controlled with some on clicks and stuff like that
 export const ModalProvider = () => {
@@ -37,6 +39,8 @@ export const ModalProvider = () => {
             <DeleteServerModal />
             <DeleteChannelModal />
             <EditChannelModal />
+            <MessageFileModal />
+            <DeleteMessageModal />
         </>
     )
 }

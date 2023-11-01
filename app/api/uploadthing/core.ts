@@ -15,9 +15,12 @@ export const ourFileRouter = {
     serverImage: f({ image: { maxFileSize: "4MB", maxFileCount: 1}})
         .middleware(() => handleAuth())
         .onUploadComplete(() => {}),
-    messageFile: f(["image", "pdf"]) //"model/gltf-binary", "video"
+    messageFile: f(["image", "pdf", "video", "audio", "application/x-rar-compressed", "application/x-7z-compressed", "text"]) //"model/gltf-binary", "video"
         .middleware(() => handleAuth())
-        .onUploadComplete(() => {})
+        .onUploadComplete(() => {}),
+    profileImage: f({ image: { maxFileSize: "4MB", maxFileCount: 1}})
+        .middleware(() => handleAuth())
+        .onUploadComplete(() => {}),
 } satisfies FileRouter;
  
 export type OurFileRouter = typeof ourFileRouter;

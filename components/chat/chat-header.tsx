@@ -2,6 +2,7 @@ import { Hash, Users } from "lucide-react";
 import { MobileToggle } from "@/components/mobile-toggle";
 import { MobileMembersToggle } from "@/components/mobile-members-toggle";
 import { UserAvatar } from "@/components/user-avatar";
+import { ChatVideoButton } from "./chat-video-button";
 
 interface ChatHeaderProps {
     serverId: string;
@@ -35,7 +36,14 @@ export const ChatHeader = ({
                 {name}
             </p>
             </div>
+            
+            <div className=" md:translate-y-1">
+            {type === "conversation" && (
+                <ChatVideoButton />
+            )}
             <MobileMembersToggle serverId={serverId} />
+            </div>
+            
         </div>
     )
 }
