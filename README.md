@@ -100,6 +100,9 @@ module.exports = withUt({
 # [important] make it so when we scale down the video/audio conference the buttons scales as well
 # [important] make it so we can have a @user call message system kind of thing
 # [important] make it so when you call a person, he may hear your call
+# [important] make it refresh and see when a new member joins
+# [very-important] make it so it refreshes when new channel is made and when someone joins, etc
+# [important] if you click leave button in a call, it should redirect you to general
 
 
 # I need to be able to block or ban people from certain servers/channels or the application altogether
@@ -114,6 +117,7 @@ module.exports = withUt({
 # we are using uploadthing for the images upload
 # we are using shadcn/ui for most of the assets
 # we are using livekit.io for video and audio
+# we are using railway.app to deploy our app, we cant use vercel because vercel is serverless and we are using websockets, and websockets wont work there
 
 # we used "npm install uploadthing @uploadthing/react react-dropzone" to install uploadthing
 
