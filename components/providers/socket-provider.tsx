@@ -30,7 +30,6 @@ export const SocketProvider = ({
   const [socket, setSocket] = useState(null);
   const [isConnected, setIsConnected] = useState(false);
 
-  // this NEXT_PUBLIC_SITE_URL is local hosted by default in development, thats why we dont add anything in our env file, but later when we deploy, we will change this NEXT_PUBLIC_SITE_URL to match our deployment url
   useEffect(() => {
     const socketInstance = new (ClientIO as any)(process.env.NEXT_PUBLIC_SITE_URL!, {
       path: "/api/socket/io",

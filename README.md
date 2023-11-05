@@ -118,6 +118,7 @@ module.exports = withUt({
 # we are using shadcn/ui for most of the assets
 # we are using livekit.io for video and audio
 # we are using railway.app to deploy our app, we cant use vercel because vercel is serverless and we are using websockets, and websockets wont work there
+# npm i sharp is an amazing library to resize images https://www.npmjs.com/package/sharp
 
 # we used "npm install uploadthing @uploadthing/react react-dropzone" to install uploadthing
 

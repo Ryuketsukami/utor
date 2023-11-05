@@ -1,23 +1,23 @@
 "use client";
 
+import axios from "axios";
+import { Check, Copy, RefreshCw } from "lucide-react";
+import { useState } from "react";
+
 import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-  } from "@/components/ui/dialog"
-import { useModal } from "@/hooks/use-modal-store";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { useModal } from "@/hooks/use-modal-store";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useOrigin } from "@/hooks/use-origin";
 
-import { Check, Copy, RefreshCw } from "lucide-react";
-import { useState } from "react";
-import axios from "axios";
-
 export const InviteModal = () => {
-    const { onOpen ,isOpen, onClose, type, data } = useModal();
+    const { onOpen, isOpen, onClose, type, data } = useModal();
     const origin = useOrigin();
 
     const isModalOpen = isOpen && type === "invite";
@@ -28,15 +28,14 @@ export const InviteModal = () => {
 
     const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
 
-    // this is how we copy the url
     const onCopy = () => {
-        navigator.clipboard.writeText(inviteUrl);
-        setCopied(true);
+    navigator.clipboard.writeText(inviteUrl);
+    setCopied(true);
 
-        setTimeout(() => {
-            setCopied(false);
-        }, 1000 )
-    }
+    setTimeout(() => {
+        setCopied(false);
+    }, 1000);
+    };
 
     const onNew = async () => {
         try {
