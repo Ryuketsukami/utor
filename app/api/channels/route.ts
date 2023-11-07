@@ -20,7 +20,7 @@ export async function POST(req: Request) {
             return new NextResponse("Server ID missing", { status: 400 });
         }
 
-        if (name == "general") {
+        if (name === "general") {
             return new NextResponse("Name cannot be 'general'", { status: 400 });
         }
 

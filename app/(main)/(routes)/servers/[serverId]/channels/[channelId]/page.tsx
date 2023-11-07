@@ -8,7 +8,7 @@ import { ChatHeader } from "@/components/chat/chat-header";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatMessages } from "@/components/chat/chat-messages";
 import { ChannelType } from "@prisma/client";
-import { MediaRoom } from "@/app/media-room";
+import { MediaRoom } from "@/components/media-room";
 
 // pay attention that serverId and channelId are the name of our folders, we are essentialy extracting the ids from the names of the folders
 interface ChannelIdPageProps{

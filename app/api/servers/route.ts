@@ -14,12 +14,14 @@ export async function POST(req: Request){
             return new NextResponse("Unauthorized", { status: 401 });
         }
         
+        // name, equals "name: name,"
+        // uuidv4() randomly generated unique invite code
         const server = await db.server.create({
             data: {
                 profileId: profile.id,
-                name, // this equals "name: name,"
+                name, 
                 imageUrl,
-                inviteCode: uuidv4(), // randomly generated unique invite code
+                inviteCode: uuidv4(),
                 channels: {
                     create: [
                         { name: "general", profileId: profile.id }

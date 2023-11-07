@@ -4,9 +4,9 @@ import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 
+// beacuse this folder has a serverId name
 export async function PATCH(
     req: Request,
-    // beacuse this folder has a serverId name
     { params } : { params: {serverId: string}}
 ) {
     try {
