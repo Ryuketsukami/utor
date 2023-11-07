@@ -58,9 +58,9 @@ export default async function handler(
             }
         });
 
-        if (!channelId){
-            return res.status(404).json({ error: "Channel not found" })
-        }
+        if (!channel) {
+            return res.status(404).json({ error: "Channel not found" });
+          }
 
         const member = server.members.find((member) => member.profileId === profile.id);
 
