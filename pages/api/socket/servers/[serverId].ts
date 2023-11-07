@@ -50,13 +50,7 @@ export default async function handler(
       return res.status(404).json({ error: "Member not found" });
     }
 
-    const isAdmin = member.role === MemberRole.ADMIN;
-    const isModerator = member.role === MemberRole.MODERATOR;
-
-    if (!isAdmin && !isModerator) {
-      return res.status(401).json({ error: "Unauthorized" });
-    }
-
+    
     for (const channel of server.channels) {
       const updateKey = `chat:${channel.id}:messages:update`;
 
